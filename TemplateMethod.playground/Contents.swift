@@ -78,3 +78,5 @@ let a = 保養A()
 let b = 保養B()
 a.進行保養A(check: true)
 b.進行保養B()
+
+//https://dotblogs.com.tw/pin0513/2010/10/03/18072 我是參考這裡的範例
