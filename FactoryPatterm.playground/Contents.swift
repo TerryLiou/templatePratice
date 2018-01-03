@@ -31,39 +31,39 @@ class ExcelForWindows: Product {
     }
 }
 
-//protocol Factory {
-//    static func createWindowsProduct() -> Product
-//    static func createMacProduct() -> Product
-//}
-//
-//class WordProductFactory: Factory {
-//    static func createWindowsProduct() -> Product {
-//        return WordForWindows()
-//    }
-//
-//    static func createMacProduct() -> Product {
-//        return WordForMac()
-//    }
-//}
-//
-//class ExcelProductFactory: Factory {
-//    static func createWindowsProduct() -> Product {
-//        return ExcelForWindows()
-//    }
-//
-//    static func createMacProduct() -> Product {
-//        return ExcelForMac()
-//    }
-//}
-//
-//let wordForWindows = WordProductFactory.createWindowsProduct()
-//wordForWindows.operation()
-//let wordForMac = WordProductFactory.createMacProduct()
-//wordForMac.operation()
-//let excelForWindows = ExcelProductFactory.createWindowsProduct()
-//excelForWindows.operation()
-//let excelForMac = ExcelProductFactory.createMacProduct()
-//excelForMac.operation()
+protocol Factory {
+    static func createWindowsProduct() -> Product
+    static func createMacProduct() -> Product
+}
+
+class WordProductFactory: Factory {
+    static func createWindowsProduct() -> Product {
+        return WordForWindows()
+    }
+
+    static func createMacProduct() -> Product {
+        return WordForMac()
+    }
+}
+
+class ExcelProductFactory: Factory {
+    static func createWindowsProduct() -> Product {
+        return ExcelForWindows()
+    }
+
+    static func createMacProduct() -> Product {
+        return ExcelForMac()
+    }
+}
+
+let wordForWindows = WordProductFactory.createWindowsProduct()
+wordForWindows.operation()
+let wordForMac = WordProductFactory.createMacProduct()
+wordForMac.operation()
+let excelForWindows = ExcelProductFactory.createWindowsProduct()
+excelForWindows.operation()
+let excelForMac = ExcelProductFactory.createMacProduct()
+excelForMac.operation()
 
 enum ProductType {
     case wordForMac, wordForWindows, excelForMac, execlForWindows

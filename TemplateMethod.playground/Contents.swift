@@ -4,29 +4,30 @@ import UIKit
 import PlaygroundSupport
 
 protocol 保養 {
-    func 進行保養(check time: Bool?)
+    func 進行保養()
     func 洗臉清潔()
     func 上化妝水()
-    func 檢查定期保養時間(by check: Bool?) -> Bool
+    func 檢查定期保養時間() -> Bool
     func 定期深層清潔()
     func 均衡滋潤()
     func 保護()
 }
 
 extension 保養 {
-    func 進行保養(check time: Bool? = nil) {
+    func 進行保養() {
         洗臉清潔()
         上化妝水()
 
-        if 檢查定期保養時間(by: time) {
+        if 檢查定期保養時間() {
             定期深層清潔()
         }
 
         保護()
+        均衡滋潤()
     }
 
-    func 檢查定期保養時間(by check: Bool?) -> Bool {
-        return check ?? false
+    func 檢查定期保養時間() -> Bool {
+        return false
     }
 
     func 洗臉清潔() {
@@ -43,6 +44,7 @@ extension 保養 {
 }
 
 class 保養A: 保養 {
+    private var ctime: TimeInterval = 0
 
     func 定期深層清潔() {
         print("去角質")
@@ -52,13 +54,19 @@ class 保養A: 保養 {
         print("塗美白精華液")
     }
 
-    func 進行保養A(check time: Bool? = nil) {
-        進行保養(check: time)
-        均衡滋潤()
+
+    func 檢查定期保養時間() -> Bool {
+        if ctime >= 1209600 {
+            return true
+        } else {
+            return false
+        }
     }
 }
 
 class 保養B: 保養 {
+    private var ctime: TimeInterval = 0
+
     func 定期深層清潔() {
         print("拔粉刺")
     }
@@ -67,14 +75,16 @@ class 保養B: 保養 {
         print("塗抗氧化精華液")
     }
 
-    func 進行保養B() {
-        進行保養()
-        定期深層清潔()
-        均衡滋潤()
+    func 檢查定期保養時間() -> Bool {
+        if ctime >= 1209600 {
+            return true
+        } else {
+            return false
+        }
     }
 }
 
 let a = 保養A()
 let b = 保養B()
-a.進行保養A(check: true)
-b.進行保養B()
+a.進行保養()
+b.進行保養()
