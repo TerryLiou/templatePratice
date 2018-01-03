@@ -86,5 +86,8 @@ class 保養B: 保養 {
 
 let a = 保養A()
 let b = 保養B()
+
 a.進行保養()
 b.進行保養()
+
+//https://dotblogs.com.tw/pin0513/2010/10/03/18072 我是參考這裡的範例
