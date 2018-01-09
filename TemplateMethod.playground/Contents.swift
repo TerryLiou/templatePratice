@@ -11,6 +11,7 @@ protocol 保養 {
     func 定期深層清潔()
     func 均衡滋潤()
     func 保護()
+    var ctime: TimeInterval { get set }
 }
 
 extension 保養 {
@@ -44,7 +45,7 @@ extension 保養 {
 }
 
 class 保養A: 保養 {
-    private var ctime: TimeInterval = 0
+    var ctime: TimeInterval = 0.0
 
     func 定期深層清潔() {
         print("去角質")
@@ -65,7 +66,7 @@ class 保養A: 保養 {
 }
 
 class 保養B: 保養 {
-    private var ctime: TimeInterval = 0
+    var ctime: TimeInterval = 0
 
     func 定期深層清潔() {
         print("拔粉刺")
